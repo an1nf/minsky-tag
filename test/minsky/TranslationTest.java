@@ -40,4 +40,24 @@ public class TranslationTest {
             .mapToInt(e -> e.getValue() * (int) Math.pow(3, e.getKey())).sum();
         assertEquals(18, value);
     }
+
+    @Test
+    public void arithmeticStepMatchesTape() {
+        for (int seed = 0; seed < 100; seed++) {
+            Random rng = new Random(seed);
+            int base = 2 + rng.nextInt(2);
+            TuringMachine tm = RandomMachines.turing(rng, base);
+            int[] in = RandomMachines.tape(rng, base, 5);
+            Run ref = tm.run(in, 40);
+            Config c = tm.initial(in);
+            assertEquals(ref.trace().get(0), c);
+            for (int i = 1; i < ref.trace().size(); i++) {
+                c = tm.step(c);
+                assertEquals("semilla " + seed + ", paso " + i, ref.trace().get(i), c);
+            }
+            if (ref.halted()) {
+                assertNull(tm.step(c));
+            }
+        }
+    }
 }

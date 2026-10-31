@@ -114,6 +114,31 @@ public final class TuringMachine {
         return new Run(trace, halted, Map.copyOf(tape), head);
     }
 
+    public Config initial(int[] input) {
+        return new Config(start, BigInteger.ZERO, encode(input, base));
+    }
+
+    /**
+     * Paso aritmético sobre (q, L, R); null si no hay transición.
+     * Derecha:   L' = L*b + w,   R' = R div b.
+     * Izquierda: L' = L div b,   R' = ((R div b)*b + w)*b + L mod b.
+     */
+    public Config step(Config c) {
+        BigInteger b = BigInteger.valueOf(base);
+        BigInteger[] qr = c.right().divideAndRemainder(b);
+        Transition tr = transition(c.state(), qr[1].intValue());
+        if (tr == null) {
+            return null;
+        }
+        BigInteger w = BigInteger.valueOf(tr.write());
+        if (tr.move() == 'R') {
+            return new Config(tr.next(), c.left().multiply(b).add(w), qr[0]);
+        }
+        BigInteger[] lq = c.left().divideAndRemainder(b);
+        BigInteger r = qr[0].multiply(b).add(w).multiply(b).add(lq[1]);
+        return new Config(tr.next(), lq[0], r);
+    }
+
     private Config config(String q, Map<Integer, Integer> tape, int head) {
         BigInteger b = BigInteger.valueOf(base);
         BigInteger l = BigInteger.ZERO;
