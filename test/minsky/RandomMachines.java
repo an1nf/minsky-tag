@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import minsky.cm.CounterMachine;
+import minsky.cm.Instr;
 import minsky.tm.TuringMachine;
 
 /** Generadores de máquinas aleatorias para las pruebas diferenciales. */
@@ -38,5 +40,20 @@ final class RandomMachines {
             t[i] = rng.nextInt(base);
         }
         return t;
+    }
+
+    static CounterMachine program(Random rng, int registers, int length) {
+        Instr[] code = new Instr[length];
+        for (int i = 0; i < length; i++) {
+            double r = rng.nextDouble();
+            if (r < 0.1 || i == length - 1) {
+                code[i] = Instr.halt();
+            } else if (r < 0.5) {
+                code[i] = Instr.inc(rng.nextInt(registers), rng.nextInt(length));
+            } else {
+                code[i] = Instr.dec(rng.nextInt(registers), rng.nextInt(length), rng.nextInt(length));
+            }
+        }
+        return CounterMachine.of("aleatorio", registers, code);
     }
 }
