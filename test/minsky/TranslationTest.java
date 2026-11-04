@@ -11,9 +11,11 @@ import java.util.Random;
 
 import org.junit.Test;
 
+import minsky.cm.CounterMachine;
 import minsky.tm.Config;
 import minsky.tm.Run;
 import minsky.tm.TuringMachine;
+import minsky.translate.TmToCounters;
 
 /** MT de referencia frente a 3 contadores, 2 contadores y 2-tag, paso a paso. */
 public class TranslationTest {
@@ -59,5 +61,46 @@ public class TranslationTest {
                 assertNull(tm.step(c));
             }
         }
+    }
+
+    @Test
+    public void examplesThreeCounters() {
+        for (Examples.Example ex : Examples.all()) {
+            Pipeline.check(ex.tm(), ex.input(), Pipeline.runCounters(ex.tm(), ex.input(), 10_000, true), 10_000);
+        }
+    }
+
+    @Test
+    public void examplesThreeCountersWithoutAcceleration() {
+        for (Examples.Example ex : Examples.all()) {
+            Pipeline.Report slow = Pipeline.runCounters(ex.tm(), ex.input(), 10_000, false);
+            Pipeline.Report fast = Pipeline.runCounters(ex.tm(), ex.input(), 10_000, true);
+            Pipeline.check(ex.tm(), ex.input(), slow, 10_000);
+            assertEquals(slow.steps(), fast.steps());
+            assertEquals(slow.last(), fast.last());
+        }
+    }
+
+    @Test
+    public void randomThreeCounters() {
+        for (int seed = 0; seed < 150; seed++) {
+            Random rng = new Random(10_000 + seed);
+            TuringMachine tm = RandomMachines.turing(rng, 2 + rng.nextInt(3));
+            int[] in = RandomMachines.tape(rng, tm.base(), 4);
+            Pipeline.check(tm, in, Pipeline.runCounters(tm, in, 25, true), 25);
+        }
+    }
+
+    @Test
+    public void auxiliaryIsZeroAtCheckpoints() {
+        TuringMachine tm = Examples.busyBeaver3();
+        CounterMachine cm = TmToCounters.compile(tm);
+        List<BigInteger> seen = new ArrayList<>();
+        cm.run(TmToCounters.registers(tm.initial(new int[] {})), null, true, (q, regs, s) -> {
+            seen.add(regs[TmToCounters.T]);
+            return true;
+        });
+        assertEquals(15, seen.size());
+        assertTrue(seen.stream().allMatch(t -> t.signum() == 0));
     }
 }
