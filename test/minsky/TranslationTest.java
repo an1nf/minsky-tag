@@ -82,12 +82,29 @@ public class TranslationTest {
     }
 
     @Test
+    public void examplesTwoCounters() {
+        for (Examples.Example ex : Examples.all()) {
+            Pipeline.check(ex.tm(), ex.input(), Pipeline.runTwoCounters(ex.tm(), ex.input(), 10_000, true), 10_000);
+        }
+    }
+
+    @Test
     public void randomThreeCounters() {
         for (int seed = 0; seed < 150; seed++) {
             Random rng = new Random(10_000 + seed);
             TuringMachine tm = RandomMachines.turing(rng, 2 + rng.nextInt(3));
             int[] in = RandomMachines.tape(rng, tm.base(), 4);
             Pipeline.check(tm, in, Pipeline.runCounters(tm, in, 25, true), 25);
+        }
+    }
+
+    @Test
+    public void randomTwoCounters() {
+        for (int seed = 0; seed < 80; seed++) {
+            Random rng = new Random(20_000 + seed);
+            TuringMachine tm = RandomMachines.turing(rng, 2 + rng.nextInt(2));
+            int[] in = RandomMachines.tape(rng, tm.base(), 3);
+            Pipeline.check(tm, in, Pipeline.runTwoCounters(tm, in, 7, true), 7);
         }
     }
 

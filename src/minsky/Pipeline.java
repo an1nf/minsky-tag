@@ -9,6 +9,7 @@ import minsky.cm.Result;
 import minsky.tm.Config;
 import minsky.tm.Run;
 import minsky.tm.TuringMachine;
+import minsky.translate.CountersToTwo;
 import minsky.translate.TmToCounters;
 
 /**
@@ -35,6 +36,24 @@ public final class Pipeline {
             });
         Config last = res.halted() ? TmToCounters.decode(res.haltInfo(), res.regs()) : null;
         return new Report("3 contadores", configs, last, res.halted(), res.steps(), cm.size(), null, 0);
+    }
+
+    public static Report runTwoCounters(TuringMachine tm, int[] input, int maxTmSteps, boolean accelerate) {
+        CounterMachine cm2 = CountersToTwo.compile(TmToCounters.compile(tm));
+        List<Config> configs = new ArrayList<>();
+        BigInteger[] zMax = {BigInteger.ZERO};
+        BigInteger[] start = CountersToTwo.encode(TmToCounters.registers(tm.initial(input)));
+        Result res = cm2.run(start, null, accelerate, (q, regs, s) -> {
+            zMax[0] = zMax[0].max(regs[CountersToTwo.Z]);
+            configs.add(TmToCounters.decode(q, CountersToTwo.decode(regs, 3)));
+            return configs.size() <= maxTmSteps;
+        });
+        Config last = null;
+        if (res.halted()) {
+            zMax[0] = zMax[0].max(res.regs()[CountersToTwo.Z]);
+            last = TmToCounters.decode(res.haltInfo(), CountersToTwo.decode(res.regs(), 3));
+        }
+        return new Report("2 contadores", configs, last, res.halted(), res.steps(), cm2.size(), zMax[0], 0);
     }
 
     /** Lanza AssertionError si la simulación no reproduce la traza de la MT. */
