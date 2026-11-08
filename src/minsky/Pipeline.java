@@ -6,11 +6,15 @@ import java.util.List;
 
 import minsky.cm.CounterMachine;
 import minsky.cm.Result;
+import minsky.tag.TagResult;
+import minsky.tag.TagSystem;
 import minsky.tm.Config;
 import minsky.tm.Run;
 import minsky.tm.TuringMachine;
 import minsky.translate.CountersToTwo;
+import minsky.translate.Sym;
 import minsky.translate.TmToCounters;
+import minsky.translate.TmToTag;
 
 /**
  * Ejecuta cada traducción y decodifica la configuración de la MT en sus puntos
@@ -54,6 +58,21 @@ public final class Pipeline {
             last = TmToCounters.decode(res.haltInfo(), CountersToTwo.decode(res.regs(), 3));
         }
         return new Report("2 contadores", configs, last, res.halted(), res.steps(), cm2.size(), zMax[0], 0);
+    }
+
+    public static Report runTag(TuringMachine tm, int[] input, int maxTmSteps) {
+        TagSystem<Sym> ts = TmToTag.compile(tm);
+        List<Config> configs = new ArrayList<>();
+        TagResult<Sym> res = ts.run(TmToTag.encode(tm.initial(input)), Long.MAX_VALUE, (w, s) -> {
+            if (TmToTag.isCanonical(w)) {
+                configs.add(TmToTag.decodeCanonical(w));
+                return configs.size() <= maxTmSteps;
+            }
+            return true;
+        });
+        Config last = res.halted() ? TmToTag.decodeHalted(res.word()) : null;
+        return new Report("2-tag", configs, last, res.halted(), BigInteger.valueOf(res.steps()),
+            ts.size(), null, res.maxLength());
     }
 
     /** Lanza AssertionError si la simulación no reproduce la traza de la MT. */

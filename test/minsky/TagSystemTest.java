@@ -14,6 +14,8 @@ import org.junit.Test;
 import minsky.tag.TagResult;
 import minsky.tag.TagSystem;
 import minsky.tm.TuringMachine;
+import minsky.translate.Sym;
+import minsky.translate.TmToTag;
 
 public class TagSystemTest {
 
@@ -45,5 +47,16 @@ public class TagSystemTest {
         TagResult<Character> r = COLLATZ.run(TagSystem.chars("a"));
         assertTrue(r.halted());
         assertEquals(0, r.steps());
+    }
+
+    @Test
+    public void productionCount() {
+        for (Examples.Example ex : Examples.all()) {
+            TuringMachine tm = ex.tm();
+            if (tm.base() == 2) {
+                int expected = 20 * tm.states().size() + 8 * tm.transitionCount();
+                assertEquals(tm.name(), expected, TmToTag.compile(tm).size());
+            }
+        }
     }
 }

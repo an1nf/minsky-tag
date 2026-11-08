@@ -89,6 +89,15 @@ public class TranslationTest {
     }
 
     @Test
+    public void examplesTwoTag() {
+        for (Examples.Example ex : Examples.all()) {
+            if (ex.tm().base() == 2) {
+                Pipeline.check(ex.tm(), ex.input(), Pipeline.runTag(ex.tm(), ex.input(), 10_000), 10_000);
+            }
+        }
+    }
+
+    @Test
     public void randomThreeCounters() {
         for (int seed = 0; seed < 150; seed++) {
             Random rng = new Random(10_000 + seed);
@@ -105,6 +114,16 @@ public class TranslationTest {
             TuringMachine tm = RandomMachines.turing(rng, 2 + rng.nextInt(2));
             int[] in = RandomMachines.tape(rng, tm.base(), 3);
             Pipeline.check(tm, in, Pipeline.runTwoCounters(tm, in, 7, true), 7);
+        }
+    }
+
+    @Test
+    public void randomTwoTag() {
+        for (int seed = 0; seed < 150; seed++) {
+            Random rng = new Random(30_000 + seed);
+            TuringMachine tm = RandomMachines.turing(rng, 2);
+            int[] in = RandomMachines.tape(rng, 2, 4);
+            Pipeline.check(tm, in, Pipeline.runTag(tm, in, 12), 12);
         }
     }
 
