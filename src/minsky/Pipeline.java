@@ -13,6 +13,7 @@ import minsky.tm.Run;
 import minsky.tm.TuringMachine;
 import minsky.translate.CountersToTwo;
 import minsky.translate.Sym;
+import minsky.translate.TagToCyclic;
 import minsky.translate.TmToCounters;
 import minsky.translate.TmToTag;
 
@@ -98,5 +99,30 @@ public final class Pipeline {
                 throw new AssertionError(rep.model() + ": puntos de control de más");
             }
         }
+    }
+
+    /** Comprueba tagSteps pasos del tag contra el sistema cíclico; devuelve los pasos cíclicos. */
+    public static <S> long cyclicCheck(TagSystem<S> ts, List<S> word, long tagSteps) {
+        TagToCyclic.Compiled<S> c = TagToCyclic.compile(ts, word);
+        int period = c.width() * ts.deletion();
+        List<S> w = new ArrayList<>(word);
+        String bits = c.encode(w);
+        long cyclic = 0;
+        for (long t = 0; t < tagSteps; t++) {
+            List<S> p = w.size() < ts.deletion() ? null : ts.rules().get(w.get(0));
+            if (p == null) {
+                break;
+            }
+            List<S> next = new ArrayList<>(w.subList(ts.deletion(), w.size()));
+            next.addAll(p);
+            w = next;
+            // el puntero cíclico vuelve a 0 en cada frontera: k*m = longitud de la lista
+            bits = c.system().run(bits, period);
+            cyclic += period;
+            if (!c.decode(bits).equals(w)) {
+                throw new AssertionError("el sistema cíclico se desvía en el paso " + t);
+            }
+        }
+        return cyclic;
     }
 }
