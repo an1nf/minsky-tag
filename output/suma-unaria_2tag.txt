@@ -1,0 +1,121 @@
+; suma-unaria -> 2-tag: 2-tag, 120 producciones, 146 símbolos
+               A<s0,R> -> C<s0,R> x
+               a<s0,R> -> c<s0,R> x
+               B<s0,R> -> D<s0,R>
+               b<s0,R> -> d<s0,R>
+               C<s0,R> -> C<s0,R,1> C<s0,R,0>
+               c<s0,R> -> c<s0,R,1> c<s0,R,0>
+               D<s0,R> -> D<s0,R,1> D<s0,R,0>
+               d<s0,R> -> d<s0,R,1> d<s0,R,0>
+              Bt<s0,R> -> B<s0,R> x
+              bt<s0,R> -> b<s0,R> x
+             C<s0,R,0> -> J A<s1,R> x a<s1,R> x
+             c<s0,R,0> -> a<s1,R> x a<s1,R> x
+             D<s0,R,0> -> B<s1,R> x
+             d<s0,R,0> -> b<s1,R> x
+             C<s0,R,1> -> A<s0,R> x a<s0,R> x
+             c<s0,R,1> -> a<s0,R> x a<s0,R> x
+             D<s0,R,1> -> B<s0,R> x
+             d<s0,R,1> -> b<s0,R> x
+               A<s0,L> -> C<s0,L> x
+               a<s0,L> -> c<s0,L> x
+               B<s0,L> -> D<s0,L>
+               b<s0,L> -> d<s0,L>
+               C<s0,L> -> C<s0,L,1> C<s0,L,0>
+               c<s0,L> -> c<s0,L,1> c<s0,L,0>
+               D<s0,L> -> D<s0,L,1> D<s0,L,0>
+               d<s0,L> -> d<s0,L,1> d<s0,L,0>
+              Bt<s0,L> -> B<s0,L> x
+              bt<s0,L> -> b<s0,L> x
+             C<s0,L,0> -> J Bt<s1,R> x
+             c<s0,L,0> -> bt<s1,R> x
+             D<s0,L,0> -> A<s1,R> x a<s1,R> x
+             d<s0,L,0> -> a<s1,R> x a<s1,R> x
+             C<s0,L,1> -> Bt<s0,R> x
+             c<s0,L,1> -> bt<s0,R> x
+             D<s0,L,1> -> A<s0,R> x a<s0,R> x
+             d<s0,L,1> -> a<s0,R> x a<s0,R> x
+               A<s1,R> -> C<s1,R> x
+               a<s1,R> -> c<s1,R> x
+               B<s1,R> -> D<s1,R>
+               b<s1,R> -> d<s1,R>
+               C<s1,R> -> C<s1,R,1> C<s1,R,0>
+               c<s1,R> -> c<s1,R,1> c<s1,R,0>
+               D<s1,R> -> D<s1,R,1> D<s1,R,0>
+               d<s1,R> -> d<s1,R,1> d<s1,R,0>
+              Bt<s1,R> -> B<s1,R> x
+              bt<s1,R> -> b<s1,R> x
+             C<s1,R,0> -> J Bt<s2,L> x
+             c<s1,R,0> -> bt<s2,L> x
+             D<s1,R,0> -> A<s2,L> x
+             d<s1,R,0> -> a<s2,L> x a<s2,L> x
+             C<s1,R,1> -> A<s1,R> x a<s1,R> x
+             c<s1,R,1> -> a<s1,R> x a<s1,R> x
+             D<s1,R,1> -> B<s1,R> x
+             d<s1,R,1> -> b<s1,R> x
+               A<s1,L> -> C<s1,L> x
+               a<s1,L> -> c<s1,L> x
+               B<s1,L> -> D<s1,L>
+               b<s1,L> -> d<s1,L>
+               C<s1,L> -> C<s1,L,1> C<s1,L,0>
+               c<s1,L> -> c<s1,L,1> c<s1,L,0>
+               D<s1,L> -> D<s1,L,1> D<s1,L,0>
+               d<s1,L> -> d<s1,L,1> d<s1,L,0>
+              Bt<s1,L> -> B<s1,L> x
+              bt<s1,L> -> b<s1,L> x
+             C<s1,L,0> -> J A<s2,L> x
+             c<s1,L,0> -> a<s2,L> x a<s2,L> x
+             D<s1,L,0> -> B<s2,L> x
+             d<s1,L,0> -> b<s2,L> x
+             C<s1,L,1> -> Bt<s1,R> x
+             c<s1,L,1> -> bt<s1,R> x
+             D<s1,L,1> -> A<s1,R> x a<s1,R> x
+             d<s1,L,1> -> a<s1,R> x a<s1,R> x
+               A<s2,R> -> C<s2,R> x
+               a<s2,R> -> c<s2,R> x
+               B<s2,R> -> D<s2,R>
+               b<s2,R> -> d<s2,R>
+               C<s2,R> -> C<s2,R,1> C<s2,R,0>
+               c<s2,R> -> c<s2,R,1> c<s2,R,0>
+               D<s2,R> -> D<s2,R,1> D<s2,R,0>
+               d<s2,R> -> d<s2,R,1> d<s2,R,0>
+              Bt<s2,R> -> B<s2,R> x
+              bt<s2,R> -> b<s2,R> x
+             C<s2,R,1> -> Bt<H,L> x
+             c<s2,R,1> -> bt<H,L> x
+             D<s2,R,1> -> A<H,L> x
+             d<s2,R,1> -> a<H,L> x a<H,L> x
+               A<s2,L> -> C<s2,L> x
+               a<s2,L> -> c<s2,L> x
+               B<s2,L> -> D<s2,L>
+               b<s2,L> -> d<s2,L>
+               C<s2,L> -> C<s2,L,1> C<s2,L,0>
+               c<s2,L> -> c<s2,L,1> c<s2,L,0>
+               D<s2,L> -> D<s2,L,1> D<s2,L,0>
+               d<s2,L> -> d<s2,L,1> d<s2,L,0>
+              Bt<s2,L> -> B<s2,L> x
+              bt<s2,L> -> b<s2,L> x
+             C<s2,L,1> -> A<H,L> x
+             c<s2,L,1> -> a<H,L> x a<H,L> x
+             D<s2,L,1> -> B<H,L> x
+             d<s2,L,1> -> b<H,L> x
+                A<H,R> -> C<H,R> x
+                a<H,R> -> c<H,R> x
+                B<H,R> -> D<H,R>
+                b<H,R> -> d<H,R>
+                C<H,R> -> C<H,R,1> C<H,R,0>
+                c<H,R> -> c<H,R,1> c<H,R,0>
+                D<H,R> -> D<H,R,1> D<H,R,0>
+                d<H,R> -> d<H,R,1> d<H,R,0>
+               Bt<H,R> -> B<H,R> x
+               bt<H,R> -> b<H,R> x
+                A<H,L> -> C<H,L> x
+                a<H,L> -> c<H,L> x
+                B<H,L> -> D<H,L>
+                b<H,L> -> d<H,L>
+                C<H,L> -> C<H,L,1> C<H,L,0>
+                c<H,L> -> c<H,L,1> c<H,L,0>
+                D<H,L> -> D<H,L,1> D<H,L,0>
+                d<H,L> -> d<H,L,1> d<H,L,0>
+               Bt<H,L> -> B<H,L> x
+               bt<H,L> -> b<H,L> x

@@ -1,0 +1,221 @@
+; incremento-binario -> 2-tag: 2-tag, 220 producciones, 254 símbolos
+              A<ini,R> -> C<ini,R> x
+              a<ini,R> -> c<ini,R> x
+              B<ini,R> -> D<ini,R>
+              b<ini,R> -> d<ini,R>
+              C<ini,R> -> C<ini,R,1> C<ini,R,0>
+              c<ini,R> -> c<ini,R,1> c<ini,R,0>
+              D<ini,R> -> D<ini,R,1> D<ini,R,0>
+              d<ini,R> -> d<ini,R,1> d<ini,R,0>
+             Bt<ini,R> -> B<ini,R> x
+             bt<ini,R> -> b<ini,R> x
+            C<ini,R,0> -> J Bt<pon,L> x
+            c<ini,R,0> -> bt<pon,L> x
+            D<ini,R,0> -> A<pon,L> x
+            d<ini,R,0> -> a<pon,L> x a<pon,L> x
+            C<ini,R,1> -> Bt<pon,L> x
+            c<ini,R,1> -> bt<pon,L> x
+            D<ini,R,1> -> A<pon,L> x a<pon,L> x
+            d<ini,R,1> -> a<pon,L> x a<pon,L> x
+              A<ini,L> -> C<ini,L> x
+              a<ini,L> -> c<ini,L> x
+              B<ini,L> -> D<ini,L>
+              b<ini,L> -> d<ini,L>
+              C<ini,L> -> C<ini,L,1> C<ini,L,0>
+              c<ini,L> -> c<ini,L,1> c<ini,L,0>
+              D<ini,L> -> D<ini,L,1> D<ini,L,0>
+              d<ini,L> -> d<ini,L,1> d<ini,L,0>
+             Bt<ini,L> -> B<ini,L> x
+             bt<ini,L> -> b<ini,L> x
+            C<ini,L,0> -> J A<pon,L> x
+            c<ini,L,0> -> a<pon,L> x a<pon,L> x
+            D<ini,L,0> -> B<pon,L> x
+            d<ini,L,0> -> b<pon,L> x
+            C<ini,L,1> -> A<pon,L> x a<pon,L> x
+            c<ini,L,1> -> a<pon,L> x a<pon,L> x
+            D<ini,L,1> -> B<pon,L> x
+            d<ini,L,1> -> b<pon,L> x
+              A<pon,R> -> C<pon,R> x
+              a<pon,R> -> c<pon,R> x
+              B<pon,R> -> D<pon,R>
+              b<pon,R> -> d<pon,R>
+              C<pon,R> -> C<pon,R,1> C<pon,R,0>
+              c<pon,R> -> c<pon,R,1> c<pon,R,0>
+              D<pon,R> -> D<pon,R,1> D<pon,R,0>
+              d<pon,R> -> d<pon,R,1> d<pon,R,0>
+             Bt<pon,R> -> B<pon,R> x
+             bt<pon,R> -> b<pon,R> x
+            C<pon,R,0> -> J A<inc,R> x a<inc,R> x
+            c<pon,R,0> -> a<inc,R> x a<inc,R> x
+            D<pon,R,0> -> B<inc,R> x
+            d<pon,R,0> -> b<inc,R> x
+              A<pon,L> -> C<pon,L> x
+              a<pon,L> -> c<pon,L> x
+              B<pon,L> -> D<pon,L>
+              b<pon,L> -> d<pon,L>
+              C<pon,L> -> C<pon,L,1> C<pon,L,0>
+              c<pon,L> -> c<pon,L,1> c<pon,L,0>
+              D<pon,L> -> D<pon,L,1> D<pon,L,0>
+              d<pon,L> -> d<pon,L,1> d<pon,L,0>
+             Bt<pon,L> -> B<pon,L> x
+             bt<pon,L> -> b<pon,L> x
+            C<pon,L,0> -> J Bt<inc,R> x
+            c<pon,L,0> -> bt<inc,R> x
+            D<pon,L,0> -> A<inc,R> x a<inc,R> x
+            d<pon,L,0> -> a<inc,R> x a<inc,R> x
+              A<inc,R> -> C<inc,R> x
+              a<inc,R> -> c<inc,R> x
+              B<inc,R> -> D<inc,R>
+              b<inc,R> -> d<inc,R>
+              C<inc,R> -> C<inc,R,1> C<inc,R,0>
+              c<inc,R> -> c<inc,R,1> c<inc,R,0>
+              D<inc,R> -> D<inc,R,1> D<inc,R,0>
+              d<inc,R> -> d<inc,R,1> d<inc,R,0>
+             Bt<inc,R> -> B<inc,R> x
+             bt<inc,R> -> b<inc,R> x
+            C<inc,R,0> -> J Bt<vuelve,L> x
+            c<inc,R,0> -> bt<vuelve,L> x
+            D<inc,R,0> -> A<vuelve,L> x a<vuelve,L> x
+            d<inc,R,0> -> a<vuelve,L> x a<vuelve,L> x
+            C<inc,R,1> -> A<inc,R> x
+            c<inc,R,1> -> a<inc,R> x a<inc,R> x
+            D<inc,R,1> -> B<inc,R> x
+            d<inc,R,1> -> b<inc,R> x
+              A<inc,L> -> C<inc,L> x
+              a<inc,L> -> c<inc,L> x
+              B<inc,L> -> D<inc,L>
+              b<inc,L> -> d<inc,L>
+              C<inc,L> -> C<inc,L,1> C<inc,L,0>
+              c<inc,L> -> c<inc,L,1> c<inc,L,0>
+              D<inc,L> -> D<inc,L,1> D<inc,L,0>
+              d<inc,L> -> d<inc,L,1> d<inc,L,0>
+             Bt<inc,L> -> B<inc,L> x
+             bt<inc,L> -> b<inc,L> x
+            C<inc,L,0> -> J A<vuelve,L> x a<vuelve,L> x
+            c<inc,L,0> -> a<vuelve,L> x a<vuelve,L> x
+            D<inc,L,0> -> B<vuelve,L> x
+            d<inc,L,0> -> b<vuelve,L> x
+            C<inc,L,1> -> Bt<inc,R> x
+            c<inc,L,1> -> bt<inc,R> x
+            D<inc,L,1> -> A<inc,R> x
+            d<inc,L,1> -> a<inc,R> x a<inc,R> x
+           A<vuelve,R> -> C<vuelve,R> x
+           a<vuelve,R> -> c<vuelve,R> x
+           B<vuelve,R> -> D<vuelve,R>
+           b<vuelve,R> -> d<vuelve,R>
+           C<vuelve,R> -> C<vuelve,R,1> C<vuelve,R,0>
+           c<vuelve,R> -> c<vuelve,R,1> c<vuelve,R,0>
+           D<vuelve,R> -> D<vuelve,R,1> D<vuelve,R,0>
+           d<vuelve,R> -> d<vuelve,R,1> d<vuelve,R,0>
+          Bt<vuelve,R> -> B<vuelve,R> x
+          bt<vuelve,R> -> b<vuelve,R> x
+         C<vuelve,R,0> -> J Bt<vuelve,L> x
+         c<vuelve,R,0> -> bt<vuelve,L> x
+         D<vuelve,R,0> -> A<vuelve,L> x
+         d<vuelve,R,0> -> a<vuelve,L> x a<vuelve,L> x
+         C<vuelve,R,1> -> Bt<tope,L> x
+         c<vuelve,R,1> -> bt<tope,L> x
+         D<vuelve,R,1> -> A<tope,L> x a<tope,L> x
+         d<vuelve,R,1> -> a<tope,L> x a<tope,L> x
+           A<vuelve,L> -> C<vuelve,L> x
+           a<vuelve,L> -> c<vuelve,L> x
+           B<vuelve,L> -> D<vuelve,L>
+           b<vuelve,L> -> d<vuelve,L>
+           C<vuelve,L> -> C<vuelve,L,1> C<vuelve,L,0>
+           c<vuelve,L> -> c<vuelve,L,1> c<vuelve,L,0>
+           D<vuelve,L> -> D<vuelve,L,1> D<vuelve,L,0>
+           d<vuelve,L> -> d<vuelve,L,1> d<vuelve,L,0>
+          Bt<vuelve,L> -> B<vuelve,L> x
+          bt<vuelve,L> -> b<vuelve,L> x
+         C<vuelve,L,0> -> J A<vuelve,L> x
+         c<vuelve,L,0> -> a<vuelve,L> x a<vuelve,L> x
+         D<vuelve,L,0> -> B<vuelve,L> x
+         d<vuelve,L,0> -> b<vuelve,L> x
+         C<vuelve,L,1> -> A<tope,L> x a<tope,L> x
+         c<vuelve,L,1> -> a<tope,L> x a<tope,L> x
+         D<vuelve,L,1> -> B<tope,L> x
+         d<vuelve,L,1> -> b<tope,L> x
+             A<tope,R> -> C<tope,R> x
+             a<tope,R> -> c<tope,R> x
+             B<tope,R> -> D<tope,R>
+             b<tope,R> -> d<tope,R>
+             C<tope,R> -> C<tope,R,1> C<tope,R,0>
+             c<tope,R> -> c<tope,R,1> c<tope,R,0>
+             D<tope,R> -> D<tope,R,1> D<tope,R,0>
+             d<tope,R> -> d<tope,R,1> d<tope,R,0>
+            Bt<tope,R> -> B<tope,R> x
+            bt<tope,R> -> b<tope,R> x
+           C<tope,R,0> -> J A<quita,R> x
+           c<tope,R,0> -> a<quita,R> x a<quita,R> x
+           D<tope,R,0> -> B<quita,R> x
+           d<tope,R,0> -> b<quita,R> x
+           C<tope,R,1> -> Bt<tope,L> x
+           c<tope,R,1> -> bt<tope,L> x
+           D<tope,R,1> -> A<tope,L> x a<tope,L> x
+           d<tope,R,1> -> a<tope,L> x a<tope,L> x
+             A<tope,L> -> C<tope,L> x
+             a<tope,L> -> c<tope,L> x
+             B<tope,L> -> D<tope,L>
+             b<tope,L> -> d<tope,L>
+             C<tope,L> -> C<tope,L,1> C<tope,L,0>
+             c<tope,L> -> c<tope,L,1> c<tope,L,0>
+             D<tope,L> -> D<tope,L,1> D<tope,L,0>
+             d<tope,L> -> d<tope,L,1> d<tope,L,0>
+            Bt<tope,L> -> B<tope,L> x
+            bt<tope,L> -> b<tope,L> x
+           C<tope,L,0> -> J Bt<quita,R> x
+           c<tope,L,0> -> bt<quita,R> x
+           D<tope,L,0> -> A<quita,R> x
+           d<tope,L,0> -> a<quita,R> x a<quita,R> x
+           C<tope,L,1> -> A<tope,L> x a<tope,L> x
+           c<tope,L,1> -> a<tope,L> x a<tope,L> x
+           D<tope,L,1> -> B<tope,L> x
+           d<tope,L,1> -> b<tope,L> x
+            A<quita,R> -> C<quita,R> x
+            a<quita,R> -> c<quita,R> x
+            B<quita,R> -> D<quita,R>
+            b<quita,R> -> d<quita,R>
+            C<quita,R> -> C<quita,R,1> C<quita,R,0>
+            c<quita,R> -> c<quita,R,1> c<quita,R,0>
+            D<quita,R> -> D<quita,R,1> D<quita,R,0>
+            d<quita,R> -> d<quita,R,1> d<quita,R,0>
+           Bt<quita,R> -> B<quita,R> x
+           bt<quita,R> -> b<quita,R> x
+          C<quita,R,1> -> A<fin,R> x
+          c<quita,R,1> -> a<fin,R> x a<fin,R> x
+          D<quita,R,1> -> B<fin,R> x
+          d<quita,R,1> -> b<fin,R> x
+            A<quita,L> -> C<quita,L> x
+            a<quita,L> -> c<quita,L> x
+            B<quita,L> -> D<quita,L>
+            b<quita,L> -> d<quita,L>
+            C<quita,L> -> C<quita,L,1> C<quita,L,0>
+            c<quita,L> -> c<quita,L,1> c<quita,L,0>
+            D<quita,L> -> D<quita,L,1> D<quita,L,0>
+            d<quita,L> -> d<quita,L,1> d<quita,L,0>
+           Bt<quita,L> -> B<quita,L> x
+           bt<quita,L> -> b<quita,L> x
+          C<quita,L,1> -> Bt<fin,R> x
+          c<quita,L,1> -> bt<fin,R> x
+          D<quita,L,1> -> A<fin,R> x
+          d<quita,L,1> -> a<fin,R> x a<fin,R> x
+              A<fin,R> -> C<fin,R> x
+              a<fin,R> -> c<fin,R> x
+              B<fin,R> -> D<fin,R>
+              b<fin,R> -> d<fin,R>
+              C<fin,R> -> C<fin,R,1> C<fin,R,0>
+              c<fin,R> -> c<fin,R,1> c<fin,R,0>
+              D<fin,R> -> D<fin,R,1> D<fin,R,0>
+              d<fin,R> -> d<fin,R,1> d<fin,R,0>
+             Bt<fin,R> -> B<fin,R> x
+             bt<fin,R> -> b<fin,R> x
+              A<fin,L> -> C<fin,L> x
+              a<fin,L> -> c<fin,L> x
+              B<fin,L> -> D<fin,L>
+              b<fin,L> -> d<fin,L>
+              C<fin,L> -> C<fin,L,1> C<fin,L,0>
+              c<fin,L> -> c<fin,L,1> c<fin,L,0>
+              D<fin,L> -> D<fin,L,1> D<fin,L,0>
+              d<fin,L> -> d<fin,L,1> d<fin,L,0>
+             Bt<fin,L> -> B<fin,L> x
+             bt<fin,L> -> b<fin,L> x

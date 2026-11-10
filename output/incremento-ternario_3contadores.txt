@@ -1,0 +1,116 @@
+; incremento-ternario -> 3 contadores: 115 instrucciones, contadores L, R, T
+     0: INC T, 1   ; punto de control inc
+     1: DEC T, 2, 2
+     2: DEC R, 3, 6
+     3: DEC R, 4, 36
+     4: DEC R, 5, 67
+     5: INC T, 2
+     6: DEC T, 7, 8
+     7: INC R, 6
+     8: DEC R, 9, 12
+     9: INC T, 10
+    10: INC T, 11
+    11: INC T, 8
+    12: DEC T, 13, 14
+    13: INC R, 12
+    14: INC R, 15
+    15: DEC R, 16, 19
+    16: INC T, 17
+    17: INC T, 18
+    18: INC T, 15
+    19: DEC T, 20, 21
+    20: INC R, 19
+    21: DEC L, 22, 25
+    22: DEC L, 23, 29
+    23: DEC L, 24, 32
+    24: INC T, 21
+    25: DEC T, 26, 27
+    26: INC L, 25
+    27: INC T, 28
+    28: DEC T, 77, 77
+    29: DEC T, 30, 31
+    30: INC L, 29
+    31: INC R, 77
+    32: DEC T, 33, 34
+    33: INC L, 32
+    34: INC R, 35
+    35: INC R, 77
+    36: DEC T, 37, 38
+    37: INC R, 36
+    38: DEC R, 39, 42
+    39: INC T, 40
+    40: INC T, 41
+    41: INC T, 38
+    42: DEC T, 43, 44
+    43: INC R, 42
+    44: INC R, 45
+    45: INC R, 46
+    46: DEC R, 47, 50
+    47: INC T, 48
+    48: INC T, 49
+    49: INC T, 46
+    50: DEC T, 51, 52
+    51: INC R, 50
+    52: DEC L, 53, 56
+    53: DEC L, 54, 60
+    54: DEC L, 55, 63
+    55: INC T, 52
+    56: DEC T, 57, 58
+    57: INC L, 56
+    58: INC T, 59
+    59: DEC T, 77, 77
+    60: DEC T, 61, 62
+    61: INC L, 60
+    62: INC R, 77
+    63: DEC T, 64, 65
+    64: INC L, 63
+    65: INC R, 66
+    66: INC R, 77
+    67: DEC T, 68, 69
+    68: INC R, 67
+    69: DEC L, 70, 73
+    70: INC T, 71
+    71: INC T, 72
+    72: INC T, 69
+    73: DEC T, 74, 75
+    74: INC L, 73
+    75: INC T, 76
+    76: DEC T, 0, 0
+    77: INC T, 78   ; punto de control H
+    78: DEC T, 79, 79
+    79: DEC R, 80, 83
+    80: DEC R, 81, 94
+    81: DEC R, 82, 104
+    82: INC T, 79
+    83: DEC T, 84, 85
+    84: INC R, 83
+    85: DEC R, 86, 89
+    86: INC T, 87
+    87: INC T, 88
+    88: INC T, 85
+    89: DEC T, 90, 91
+    90: INC R, 89
+    91: INC T, 92
+    92: DEC T, 93, 93
+    93: HALT   ; H
+    94: DEC T, 95, 96
+    95: INC R, 94
+    96: DEC R, 97, 100
+    97: INC T, 98
+    98: INC T, 99
+    99: INC T, 96
+   100: DEC T, 101, 102
+   101: INC R, 100
+   102: INC R, 103
+   103: HALT   ; H
+   104: DEC T, 105, 106
+   105: INC R, 104
+   106: DEC R, 107, 110
+   107: INC T, 108
+   108: INC T, 109
+   109: INC T, 106
+   110: DEC T, 111, 112
+   111: INC R, 110
+   112: INC R, 113
+   113: INC R, 114
+   114: HALT   ; H

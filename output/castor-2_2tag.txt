@@ -1,0 +1,93 @@
+; castor-2 -> 2-tag: 2-tag, 92 producciones, 110 símbolos
+                A<A,R> -> C<A,R> x
+                a<A,R> -> c<A,R> x
+                B<A,R> -> D<A,R>
+                b<A,R> -> d<A,R>
+                C<A,R> -> C<A,R,1> C<A,R,0>
+                c<A,R> -> c<A,R,1> c<A,R,0>
+                D<A,R> -> D<A,R,1> D<A,R,0>
+                d<A,R> -> d<A,R,1> d<A,R,0>
+               Bt<A,R> -> B<A,R> x
+               bt<A,R> -> b<A,R> x
+              C<A,R,0> -> J A<B,R> x a<B,R> x
+              c<A,R,0> -> a<B,R> x a<B,R> x
+              D<A,R,0> -> B<B,R> x
+              d<A,R,0> -> b<B,R> x
+              C<A,R,1> -> Bt<B,L> x
+              c<A,R,1> -> bt<B,L> x
+              D<A,R,1> -> A<B,L> x a<B,L> x
+              d<A,R,1> -> a<B,L> x a<B,L> x
+                A<A,L> -> C<A,L> x
+                a<A,L> -> c<A,L> x
+                B<A,L> -> D<A,L>
+                b<A,L> -> d<A,L>
+                C<A,L> -> C<A,L,1> C<A,L,0>
+                c<A,L> -> c<A,L,1> c<A,L,0>
+                D<A,L> -> D<A,L,1> D<A,L,0>
+                d<A,L> -> d<A,L,1> d<A,L,0>
+               Bt<A,L> -> B<A,L> x
+               bt<A,L> -> b<A,L> x
+              C<A,L,0> -> J Bt<B,R> x
+              c<A,L,0> -> bt<B,R> x
+              D<A,L,0> -> A<B,R> x a<B,R> x
+              d<A,L,0> -> a<B,R> x a<B,R> x
+              C<A,L,1> -> A<B,L> x a<B,L> x
+              c<A,L,1> -> a<B,L> x a<B,L> x
+              D<A,L,1> -> B<B,L> x
+              d<A,L,1> -> b<B,L> x
+                A<B,R> -> C<B,R> x
+                a<B,R> -> c<B,R> x
+                B<B,R> -> D<B,R>
+                b<B,R> -> d<B,R>
+                C<B,R> -> C<B,R,1> C<B,R,0>
+                c<B,R> -> c<B,R,1> c<B,R,0>
+                D<B,R> -> D<B,R,1> D<B,R,0>
+                d<B,R> -> d<B,R,1> d<B,R,0>
+               Bt<B,R> -> B<B,R> x
+               bt<B,R> -> b<B,R> x
+              C<B,R,0> -> J Bt<A,L> x
+              c<B,R,0> -> bt<A,L> x
+              D<B,R,0> -> A<A,L> x a<A,L> x
+              d<B,R,0> -> a<A,L> x a<A,L> x
+              C<B,R,1> -> A<H,R> x a<H,R> x
+              c<B,R,1> -> a<H,R> x a<H,R> x
+              D<B,R,1> -> B<H,R> x
+              d<B,R,1> -> b<H,R> x
+                A<B,L> -> C<B,L> x
+                a<B,L> -> c<B,L> x
+                B<B,L> -> D<B,L>
+                b<B,L> -> d<B,L>
+                C<B,L> -> C<B,L,1> C<B,L,0>
+                c<B,L> -> c<B,L,1> c<B,L,0>
+                D<B,L> -> D<B,L,1> D<B,L,0>
+                d<B,L> -> d<B,L,1> d<B,L,0>
+               Bt<B,L> -> B<B,L> x
+               bt<B,L> -> b<B,L> x
+              C<B,L,0> -> J A<A,L> x a<A,L> x
+              c<B,L,0> -> a<A,L> x a<A,L> x
+              D<B,L,0> -> B<A,L> x
+              d<B,L,0> -> b<A,L> x
+              C<B,L,1> -> Bt<H,R> x
+              c<B,L,1> -> bt<H,R> x
+              D<B,L,1> -> A<H,R> x a<H,R> x
+              d<B,L,1> -> a<H,R> x a<H,R> x
+                A<H,R> -> C<H,R> x
+                a<H,R> -> c<H,R> x
+                B<H,R> -> D<H,R>
+                b<H,R> -> d<H,R>
+                C<H,R> -> C<H,R,1> C<H,R,0>
+                c<H,R> -> c<H,R,1> c<H,R,0>
+                D<H,R> -> D<H,R,1> D<H,R,0>
+                d<H,R> -> d<H,R,1> d<H,R,0>
+               Bt<H,R> -> B<H,R> x
+               bt<H,R> -> b<H,R> x
+                A<H,L> -> C<H,L> x
+                a<H,L> -> c<H,L> x
+                B<H,L> -> D<H,L>
+                b<H,L> -> d<H,L>
+                C<H,L> -> C<H,L,1> C<H,L,0>
+                c<H,L> -> c<H,L,1> c<H,L,0>
+                D<H,L> -> D<H,L,1> D<H,L,0>
+                d<H,L> -> d<H,L,1> d<H,L,0>
+               Bt<H,L> -> B<H,L> x
+               bt<H,L> -> b<H,L> x

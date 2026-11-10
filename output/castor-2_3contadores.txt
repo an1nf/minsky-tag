@@ -1,0 +1,97 @@
+; castor-2 -> 3 contadores: 96 instrucciones, contadores L, R, T
+     0: INC T, 1   ; punto de control A
+     1: DEC T, 2, 2
+     2: DEC R, 3, 5
+     3: DEC R, 4, 13
+     4: INC T, 2
+     5: DEC T, 6, 7
+     6: INC R, 5
+     7: DEC L, 8, 10
+     8: INC T, 9
+     9: INC T, 7
+    10: DEC T, 11, 12
+    11: INC L, 10
+    12: INC L, 36
+    13: DEC T, 14, 15
+    14: INC R, 13
+    15: DEC R, 16, 18
+    16: INC T, 17
+    17: INC T, 15
+    18: DEC T, 19, 20
+    19: INC R, 18
+    20: INC R, 21
+    21: DEC R, 22, 24
+    22: INC T, 23
+    23: INC T, 21
+    24: DEC T, 25, 26
+    25: INC R, 24
+    26: DEC L, 27, 29
+    27: DEC L, 28, 33
+    28: INC T, 26
+    29: DEC T, 30, 31
+    30: INC L, 29
+    31: INC T, 32
+    32: DEC T, 36, 36
+    33: DEC T, 34, 35
+    34: INC L, 33
+    35: INC R, 36
+    36: INC T, 37   ; punto de control B
+    37: DEC T, 38, 38
+    38: DEC R, 39, 41
+    39: DEC R, 40, 64
+    40: INC T, 38
+    41: DEC T, 42, 43
+    42: INC R, 41
+    43: DEC R, 44, 46
+    44: INC T, 45
+    45: INC T, 43
+    46: DEC T, 47, 48
+    47: INC R, 46
+    48: INC R, 49
+    49: DEC R, 50, 52
+    50: INC T, 51
+    51: INC T, 49
+    52: DEC T, 53, 54
+    53: INC R, 52
+    54: DEC L, 55, 57
+    55: DEC L, 56, 61
+    56: INC T, 54
+    57: DEC T, 58, 59
+    58: INC L, 57
+    59: INC T, 60
+    60: DEC T, 0, 0
+    61: DEC T, 62, 63
+    62: INC L, 61
+    63: INC R, 0
+    64: DEC T, 65, 66
+    65: INC R, 64
+    66: DEC L, 67, 69
+    67: INC T, 68
+    68: INC T, 66
+    69: DEC T, 70, 71
+    70: INC L, 69
+    71: INC L, 72
+    72: INC T, 73   ; punto de control H
+    73: DEC T, 74, 74
+    74: DEC R, 75, 77
+    75: DEC R, 76, 87
+    76: INC T, 74
+    77: DEC T, 78, 79
+    78: INC R, 77
+    79: DEC R, 80, 82
+    80: INC T, 81
+    81: INC T, 79
+    82: DEC T, 83, 84
+    83: INC R, 82
+    84: INC T, 85
+    85: DEC T, 86, 86
+    86: HALT   ; H
+    87: DEC T, 88, 89
+    88: INC R, 87
+    89: DEC R, 90, 92
+    90: INC T, 91
+    91: INC T, 89
+    92: DEC T, 93, 94
+    93: INC R, 92
+    94: INC R, 95
+    95: HALT   ; H
