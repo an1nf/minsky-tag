@@ -1,10 +1,7 @@
 # minsky-tag
 
-Traducciones de máquinas de Turing a máquinas de Minsky de 3 y 2 contadores y a sistemas 2-tag, con verificación paso a paso contra un simulador de referencia.
-
-**Teorema (Minsky 1961, 1967).** Para toda máquina de Turing $M$ existe una máquina de Minsky $C_M$ con dos contadores tal que, si $C_M$ arranca con $Z = 2^{L_0}3^{R_0}$ e $Y = 0$, donde $L_0, R_0$ codifican la cinta inicial de $M$, entonces $C_M$ para si y sólo si $M$ para, y en ese caso $Z$ codifica la cinta final de $M$.
-
-Construye $C_M$ a partir de $M$ en dos traducciones + ruta paralela por sistemas de etiquetas:
+Traducciones de máquinas de Turing a máquinas de Minsky, y a sistemas 2-tag.
+**Teorema (Minsky 1961, 1967).** Para toda máquina de Turing $M$ existe una máquina de Minsky $C_M$ con dos contadores tal que, si $C_M$ arranca con $Z = 2^{L_0}3^{R_0}$ e $Y = 0$, donde $L_0, R_0$ codifican la cinta inicial de $M$, entonces $C_M$ para si y sólo si $M$ para, y en ese caso $Z$ codifica la cinta final de $M$. Construye $C_M$ a partir de $M$ en dos traducciones + ruta paralela por sistemas de etiquetas:
 
 ```mermaid
 flowchart LR
@@ -52,4 +49,4 @@ java -jar target/minsky-tag-1.0.jar output --trace
 11. Neary, T. y Woods, D. (2006). P-completeness of cellular automaton Rule 110. *ICALP 2006*, LNCS 4051, 132-143.
 12. De Mol, L. (2008). Tag systems and Collatz-like functions. *Theoretical Computer Science*, 390(1), 92-101. doi:10.1016/j.tcs.2007.10.020
 13. De Mol, L. (2011). On the complex behavior of simple tag systems: an experimental approach. *Theoretical Computer Science*, 412(1-2), 97-112.
-14. Hopcroft, J. E. y Ullman, J. D. (1979). *Introduction to Automata Theory, Languages, and Computation*. Addison-Wesley.
+14. Hopcroft, J. E. y Ullman, J. D. (1979). *Introduction to Automata Theory, Languages, and Computation*. 
