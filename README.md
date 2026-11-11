@@ -1,7 +1,7 @@
 # minsky-tag
 
 Traducciones de máquinas Turing a máquinas de Minsky, y a sistemas 2-tag.
-**Teorema (Minsky 1961, 1967):** Para toda máquina de Turing $M$ existe una máquina de Minsky $C_M$ con dos contadores tal que, si $C_M$ arranca con $Z = 2^{L_0}3^{R_0}$ e $Y = 0$, donde $L_0, R_0$ codifican la cinta inicial de $M$, entonces $C_M$ para si y sólo si $M$ para, y en ese caso $Z$ codifica la cinta final de $M$. Construye $C_M$ a partir de $M$ en dos traducciones + ruta paralela por sistemas de etiquetas:
+**Teorema (Minsky 1961, 1967):** para toda máquina de Turing $M$ existe una máquina de Minsky $C_M$ con dos contadores tal que, si $C_M$ arranca con $Z = 2^{L_0}3^{R_0}$ e $Y = 0$, donde $L_0, R_0$ codifican la cinta inicial de $M$, entonces $C_M$ para si y sólo si $M$ para, y en ese caso $Z$ codifica la cinta final de $M$. Construye $C_M$ a partir de $M$ en dos traducciones + ruta paralela por sistemas de etiquetas:
 
 ```mermaid
 flowchart LR
@@ -23,14 +23,6 @@ mvn test
 mvn package
 java -jar target/minsky-tag-1.0.jar output --trace
 ```
-
-`output/` contiene, para cada MT de ejemplo:
-
-* `<mt>_3contadores.txt`, `<mt>_2contadores.txt`: programas INC/DEC/HALT;
-* `<mt>_2tag.txt`: producciones del sistema 2-tag;
-* `castor-2_traza_2tag.txt`: evolución de la palabra 2-tag;
-* `resultados.md`: tabla de resultados.
-
 
 ## 10. Referencias
 
